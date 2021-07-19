@@ -1,6 +1,7 @@
 package one.digitalinnovation.peoplemanager.service;
 
 import one.digitalinnovation.peoplemanager.dto.MessageResponseDTO;
+import one.digitalinnovation.peoplemanager.dto.request.PersonDTO;
 import one.digitalinnovation.peoplemanager.entity.Person;
 import one.digitalinnovation.peoplemanager.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,14 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    public MessageResponseDTO createPerson(Person person){
-        Person savedPerson = personRepository.save(person);
+    public MessageResponseDTO createPerson(PersonDTO personDTO){
+        Person personToSave = Person.builder()
+                .firstName(personDTO.getFirstName())
+                .lastName(personDTO.getLastName())
+                .birthDate(personDTO.getBirthDate())
+                .build();
+
+        Person savedPerson = personRepository.save(personToSave);
         //Message on 200 success code:
         return MessageResponseDTO
                 .builder()
