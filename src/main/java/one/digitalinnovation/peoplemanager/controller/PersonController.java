@@ -1,5 +1,6 @@
 package one.digitalinnovation.peoplemanager.controller;
 
+import lombok.AllArgsConstructor;
 import one.digitalinnovation.peoplemanager.dto.MessageResponseDTO;
 import one.digitalinnovation.peoplemanager.dto.request.PersonDTO;
 import one.digitalinnovation.peoplemanager.entity.Person;
@@ -16,14 +17,17 @@ import java.util.List;
 //Defines the callable http address for this object:
 @RestController
 @RequestMapping("/api/v1/people")
-public class PersonController {
-
-    private PersonService personService;
-
-    @Autowired
+@AllArgsConstructor(onConstructor = @__(@Autowired))
+/*
+replaces the constructor:
+@Autowired
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
+ */
+public class PersonController {
+
+    private PersonService personService;
 
     @PostMapping
     //RequestBody tells the content comes from the request
