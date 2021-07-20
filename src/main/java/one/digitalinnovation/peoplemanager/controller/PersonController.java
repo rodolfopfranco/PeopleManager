@@ -3,6 +3,7 @@ package one.digitalinnovation.peoplemanager.controller;
 import one.digitalinnovation.peoplemanager.dto.MessageResponseDTO;
 import one.digitalinnovation.peoplemanager.dto.request.PersonDTO;
 import one.digitalinnovation.peoplemanager.entity.Person;
+import one.digitalinnovation.peoplemanager.exception.PersonNotFoundException;
 import one.digitalinnovation.peoplemanager.repository.PersonRepository;
 import one.digitalinnovation.peoplemanager.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,14 @@ public class PersonController {
     }
 
     @GetMapping
+    //Returns a list with every person:
     public List<PersonDTO> listAll(){
         return personService.listAll();
+    }
+
+    //To enable another get, defines a kind of PHP-like GET.
+    @GetMapping("/{id}")
+    public PersonDTO findByID(@PathVariable Long id) throws PersonNotFoundException {
+        return personService.findById(id);
     }
 }

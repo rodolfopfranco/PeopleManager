@@ -8,11 +8,12 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface PersonMapper {
-    //Transforms received DTO into normal object
+    //Transforms received DTO into model object
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
     //Transforms String to Date
-    @Mapping(target = "birthDate",source="birthDate",dateFormat = "dd-MM-yyyy")
+    @Mapping(target = "birthDate", source="birthDate", dateFormat = "dd-MM-yyyy")
     Person toModel(PersonDTO personDTO);
+
     PersonDTO toDTO(Person person);
 }
