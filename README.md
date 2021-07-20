@@ -18,5 +18,5 @@ https://people-manager-gft.herokuapp.com/swagger-ui.html
 * Linguagem: Java: 11
 * Gerenciador de projeto: Maven 3.8.1
 * Framework: SpringBoot 2.5.2
-    * Dependências Spring: Actuator, JPA, Web, DevTools, H2, Swagger, AssertJ, Validation, MapStruct
+    * Dependências Spring: Actuator, JPA, Web, DevTools, H2, Swagger, AssertJ, Validation, MapStruct, Junit, Mockito
 * Plataforma em nuvem: Heroku
